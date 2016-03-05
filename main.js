@@ -28,15 +28,15 @@ document.body.addEventListener('drop', function(e) {
 
 document.body.addEventListener('touchstart', function(e) {
     e.preventDefault();
-    which = e.target;
+    var whichPiece = e.target;
     var finger = e.touches[0];
-    var xx = which.offsetLeft - finger.pageX;
-    var yy = which.offsetTop - finger.pageY;
+    var xx = whichPiece.offsetLeft - finger.pageX;
+    var yy = whichPiece.offsetTop - finger.pageY;
     resetIndex()
-    which.style.zIndex = 10;
+    whichPiece.style.zIndex = 10;
 
-    which.addEventListener('touchmove', function() {
-        which.style.left = finger.pageX + xx + 'px';
-        which.style.top = finger.pageY + yy + 'px';
+    whichPiece.addEventListener('touchmove', function() {
+        whichPiece.style.left = finger.pageX + xx + 'px';
+        whichPiece.style.top = finger.pageY + yy + 'px';
     }, false)
 }, false)
